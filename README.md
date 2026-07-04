@@ -1,4 +1,4 @@
-# NossaGrana 💰
+# Dinheir.io 💰
 
 > **Status: 📋 Em planejamento** — nome ainda não definido (sugestão inicial: *NossaGrana*), este README é temporário e será atualizado conforme o desenvolvimento avança.
 
