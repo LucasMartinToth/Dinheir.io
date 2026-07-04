@@ -1,6 +1,6 @@
 # Dinheir.io 💰
 
-> **Status: 📋 Em planejamento** — nome ainda não definido (sugestão inicial: *NossaGrana*), este README é temporário e será atualizado conforme o desenvolvimento avança.
+> **Status: 📋 Em planejamento** — Este README é temporário e será atualizado conforme o desenvolvimento avança.
 
 App (PWA) de controle financeiro para uso pessoal de um casal, com banco de dados compartilhado ("casa") e projeção de saldo futuro.
 
@@ -32,8 +32,6 @@ Um app nativo instalado fora da App Store com Apple ID gratuito **expira a cada 
 
 **Trade-off aceito:** notificações push no iOS via PWA (16.4+) funcionam, mas exigem configuração extra (VAPID keys + service worker). Como o app já tem confirmação por modal ao abrir (ver funcionalidades), a dependência de push é baixa — o app funciona bem mesmo sem push 100% configurado.
 
-⚠️ **Login com Apple**: o "Sign in with Apple" oficial exige conta paga no Apple Developer Program (US$99/ano) para configurar o Service ID usado pelo Supabase Auth. Isso conflita com o requisito de custo zero. **Recomendação:** lançar com email/senha + Google (ambos gratuitos) e deixar Apple como opcional futuro, caso decidam pagar a taxa por outro motivo.
-
 ---
 
 ## 🛠️ Stack tecnológica
@@ -44,7 +42,7 @@ Um app nativo instalado fora da App Store com Apple ID gratuito **expira a cada 
 | Estilização | Tailwind CSS | Rápido, consistente, fácil pra iniciante |
 | PWA | `next-pwa` (ou manifest + service worker manual) | Instalação na tela de início, funcionamento offline básico |
 | Banco de dados | Supabase (PostgreSQL) | Banco + auth + RLS + Edge Functions, free tier generoso |
-| Autenticação | Supabase Auth (email/senha + Google OAuth) | Google é gratuito; Apple fica de fora por custo |
+| Autenticação | Supabase Auth (email/senha) |
 | Recorrências | Supabase Edge Functions + `pg_cron` | Gera lançamentos esperados futuros automaticamente, sem servidor extra |
 | Push notifications (opcional) | Web Push API + VAPID keys | Gratuito, mas com setup técnico — pode ficar pra fase final |
 | Deploy | Vercel (Hobby) | CI/CD automático, HTTPS grátis (obrigatório pra PWA) |
@@ -56,7 +54,6 @@ Um app nativo instalado fora da App Store com Apple ID gratuito **expira a cada 
 
 ### Autenticação e casa compartilhada
 - Cadastro e login com email e senha
-- Login com Google (OAuth via Supabase)
 - Criar uma "casa" → gera um **código de casa** único (ex: `CASA-7F3K9`)
 - Entrar em uma casa existente informando o código
 - Todos os dados financeiros pertencem à casa (RLS garante que só os membros daquela casa acessam)
@@ -126,9 +123,8 @@ Um app nativo instalado fora da App Store com Apple ID gratuito **expira a cada 
 
 **Entregável:** app completo no fluxo principal do dia a dia
 
-### Fase 5 — PWA e login social
+### Fase 5 — PWA
 - [ ] Manifest.json + ícones + service worker (instalação na tela de início)
-- [ ] Login com Google
 - [ ] Push notifications (opcional, se topar a complexidade extra)
 - [ ] Polimento de UI/acessibilidade
 
@@ -140,7 +136,7 @@ Um app nativo instalado fora da App Store com Apple ID gratuito **expira a cada 
 
 1. **Criar o repositório**
    ```bash
-   npx create-next-app@latest nossagrana --typescript --tailwind --app
+   npx create-next-app@latest dinheirio --typescript --tailwind --app
    ```
 
 2. **Configurar o Supabase**
@@ -168,7 +164,6 @@ Um app nativo instalado fora da App Store com Apple ID gratuito **expira a cada 
 |---|---|---|
 | Vercel | Hobby | R$ 0 |
 | Supabase | Free tier | R$ 0 |
-| Google OAuth | Google Cloud (gratuito p/ esse uso) | R$ 0 |
 | Domínio | Opcional — pode usar `*.vercel.app` | R$ 0 (ou R$ 40/ano se quiser domínio próprio) |
 | Push notifications (VAPID) | Gratuito | R$ 0 |
 
