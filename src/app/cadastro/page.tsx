@@ -57,7 +57,7 @@ export default function CadastroPage() {
     <div className="flex h-screen flex-col">
       {/* imagem: sempre 1/3 da altura da tela */}
       <div className="relative flex-[1] w-full">
-        <Image src="/cadastro-hero.png" alt="" fill className="object-cover" priority />
+        <Image src="/cadastro-hero.webp" alt="" fill className="object-cover" priority />
       </div>
 
       {/* card: sempre 2/3 da altura da tela, puxado pra cima */}
