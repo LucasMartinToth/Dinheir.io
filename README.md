@@ -1,4 +1,4 @@
-# Dinheir.io 💰
+# Dinheirin.io 💰
 
 > **Status: 📋 Em planejamento** — Este README é temporário e será atualizado conforme o desenvolvimento avança.
 
